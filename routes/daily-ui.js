@@ -27,7 +27,7 @@ router.post('/add', bodyParser.json(), function(req, res) {
     });
 
     if (isExisted) {
-        res.send('esisted');
+        res.send('existed');
     } else {
         v.date = new Date().toISOString();
         dao.add('daily-ui', v);

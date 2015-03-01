@@ -3,20 +3,13 @@ var app = angular.module('admin', []);
 app.run(function($rootScope, $http) {
     $http.get('/daily-ui/list')
         .success(function(data) {
-            $rootScope.list = data.map(function(v) {
-                try {
-                    return JSON.parse(v);
-                } catch (e) {
-                    console.log(e);
-                    return {label: '', link: ''};
-                }
-            });
+            $rootScope.list = data;
         });
 
     $rootScope.add = function() {
         $http.post('/daily-ui/add', {
-            label: 'Practice2',
-            link: '/daily-ui/practice'
+            link: '/daily-ui/20141211-snow',
+            label: 'Snow'
         }).success(function(data) {
             console.log(data);
         });
@@ -33,14 +26,4 @@ app.run(function($rootScope, $http) {
             console.log(responseText);
         });
     };
-});
-
-app.filter('parse', function() {
-    return function(input) {
-        if (input instanceof Array) {
-            return input.map(function(v) {
-                return JSON.parse(v);
-            });
-        }
-    }
 });
