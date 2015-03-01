@@ -1,11 +1,8 @@
 var express = require('express'),
-    levelup = require('level'),
-    sublevel = require('level-sublevel'),
+    dao = require(process.cwd() + '/lib/dao'),
     bodyParser = require('body-parser');
 
 var router = express.Router(),
-    db = sublevel(levelup('./db')),
-    sub = db.sublevel('daily-ui'),
     util = require('util');
 
 router.get('/', function(req, res) {
@@ -13,33 +10,29 @@ router.get('/', function(req, res) {
 });
 
 router.get('/list', function(req, res) {
-    var result = [];
+    var result = dao.list('daily-ui');
 
-    sub.createReadStream().
-        on('data', function(data) {
-            result.push(data.value);
-        }).
-        on('end', function() {
-            res.send(result);
-        });
+    res.send(result);
 });
 
 router.post('/add', bodyParser.json(), function(req, res) {
-    var v = req.body;
-    sub.get(v.link, function(err, data) {
-        if (err) {
-            v.date = new Date().toISOString();
-            sub.put(v.link, v, {valueEncoding: 'json'}, function(err) {
-                if (err) {
-                    res.send('error on save');
-                } else {
-                    res.send('OK');
-                }
-            });
-        } else {
-            res.send('existed');
+    var v = req.body,
+        data = dao.list('daily-ui'),
+        isExisted = false;
+
+    data.forEach(function(o) {
+        if (o.link == v.link) {
+            isExisted = true;
         }
     });
+
+    if (isExisted) {
+        res.send('esisted');
+    } else {
+        v.date = new Date().toISOString();
+        dao.add('daily-ui', v);
+        res.send('OK');
+    }
 });
 
 router.post('/delete', bodyParser.json(), function(req, res) {

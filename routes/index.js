@@ -1,13 +1,15 @@
 var express = require('express'),
     router = express.Router(),
-    data = require('./data.json');
+    dao = require(process.cwd() + '/lib/dao');
 
 router.use('/angular', require('./angular'));
 router.use('/design', require('./design'));
 router.use('/daily-ui', require('./daily-ui'));
 
 router.get('/', function(request, response) {
-    response.render('index', data.index);
+    var data = dao.list('daily-ui');
+    console.log('index', data);
+    response.render('index', data); 
 });
 
 module.exports = router;
