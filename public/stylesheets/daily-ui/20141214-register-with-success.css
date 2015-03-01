@@ -1,0 +1,175 @@
+html, body, div, h3, input, label, button, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(/images/bg/gs.png) repeat;
+    color: #333;
+}
+
+.dialog {
+    position: relative;
+    width: 500px;
+    margin: 50px auto;
+    border: 1px solid #666;
+    border-radius: 5px;
+    box-shadow: 0 0 5px hsla(0, 0%, 0%, .25);
+}
+
+.dialog-head {
+    background-image: linear-gradient(to bottom, #4f7ad1, #32638c);
+    border-bottom: 1px solid #06365e;
+    border-radius: 5px 5px 0 0;
+}
+
+.dialog-title {
+    text-align: center;
+    padding: 15px;
+    color: #e3e6eb;
+}
+
+.dialog-body {
+    background: #fff;
+    padding: 25px;
+}
+
+.row {
+    margin-bottom: 15px;
+}
+
+.row:before, .row:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+}
+
+.row:after {
+    clear: both;
+}
+
+input[type="text"] {
+    padding: 8px;
+    width: 65%;
+    border: 1px solid #ccc;
+    transition: border-color ease-in .2s;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #32638c;
+}
+
+label {
+    display: block;
+    width: 35%;
+    font-weight: bold;
+    float: left;
+    padding: 5px 0;
+    color: #262626;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    padding: 8px 0;
+    color: #487ca4;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.row a {
+    float: left;
+}
+
+button {
+    float: right;
+    display: block;
+    padding: 10px 25px;
+    border: none;
+    background: #4f7ad1;
+    color: #e3e6eb;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background ease-in .2s;
+}
+
+button:hover {
+    background: #32638c;
+}
+
+button:focus {
+    outline: none;
+}
+
+.feedback {
+    position: relative;
+    width: 350px;
+    margin: 0 auto;
+    padding: 25px;
+    background: #fff;
+    border-radius: 10px;
+    display: none;
+    opacity: 0;
+}
+
+.icon {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: -60px;
+    left: 50%;
+    margin-left: -60px;
+    border-radius: 100%;
+    background: #4f7ad1;
+    transform: scale(4);
+    opacity: 0;
+    transition: all ease-in .3s;
+}
+
+.icon:before {
+    content: '\2713';
+    text-align: center;
+    display: block;
+    line-height: 20px;
+    margin-top: 50px;
+    font-size: 80px;
+    color: #e3e6eb;
+}
+
+.icon.active {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.feedback .title {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 26px;
+}
+
+.feedback .info {
+    line-height: 1.6;
+    text-align: center;
+}
+
+.feedback a {
+    display: block;
+    background: #4f7ad1;
+    color: #e3e6eb;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 8px;;
+}
+
+.feedback a:hover {
+    text-decoration: none;
+    background: #32638c;
+}

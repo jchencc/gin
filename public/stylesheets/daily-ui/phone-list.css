@@ -1,0 +1,269 @@
+@font-face {
+    font-family: 'Robot';
+    src: url('../fonts/roboto-regular-webfont.eot');
+    src: url('../fonts/roboto-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/roboto-regular-webfont.woff2') format('woff2'),
+         url('../fonts/roboto-regular-webfont.woff') format('woff'),
+         url('../fonts/roboto-regular-webfont.ttf') format('truetype'),
+         url('../fonts/roboto-regular-webfont.svg#robotoregular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #f5f5f5;
+    height: 100%;
+}
+
+html, body, a, h1, h2, h3, h4, h5, h6, p {
+    font-family: Robot, sans-serif;
+}
+
+.banner-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url(/images/bg/banner.jpg) no-repeat center 0 fixed;
+}
+
+.banner-overlay {
+    width: 100%;
+    height: 100%;
+    background: url(/images/bg/banner-dot-overlay.png) repeat 0 0;
+}
+
+.banner-text {
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.banner-text h1,
+.banner-text h2 {
+    color: #dff3fe;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.banner-text h1 {
+    font-size: 5em;
+}
+
+.banner-text h2 {
+    font-size: 1.5em;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0 0;
+    overflow: hidden;
+}
+
+.logo {
+    float: left;
+    color: #dff3fe;
+    margin: 20px 0 0;
+}
+
+.search_wrapper {
+    float: right;
+    width: 200px;
+}
+
+.search_input {
+    width: 170px;
+    height: 30px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #eeeee6;
+}
+
+.search_input:hover,
+.search_input:focus {
+    outline: none;
+}
+
+.search_icon {
+    display: block;
+    float: right;
+    width: 30px;
+    height: 30px;
+    padding: 7px 8px;
+}
+
+nav {
+    float: right;
+    margin: 20px 0 0;
+}
+
+nav > ul > li {
+    float: left;
+    width: 80px;
+    margin-right: 10px;
+}
+
+nav > ul > li:last-child {
+    margin-right: 0;
+}
+
+nav a, nav a:active, nav a:focus {
+    display: block;
+    border: 1px solid #dff3fe;
+    text-align: center;
+    color: #dff3fe;
+    padding: 5px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: none;
+    background-color: #dff3fe;
+    color: #b34723;
+}
+
+section.gallery {
+    width: 1100px;
+    margin: 50px auto;
+}
+
+.gallery .item {
+    background: #213142;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.gallery .item figure {
+    position: relative;
+}
+
+.gallery .item figure img {
+    width: 100%;
+    transition: opacity ease-in .25s;
+}
+
+.gallery .item:hover figure img {
+    opacity: 0.5;
+}
+
+.gallery .item figure figcaption {
+    position: absolute;
+    display: block;
+    top: 15%;
+    left: 20%;
+    width: 60%;
+    height: 70%;
+    opacity: 0;
+}
+
+.gallery .item:hover figure figcaption {
+    opacity: 1;
+}
+
+.gallery .item figure figcaption p {
+    position: absolute;
+    top: 55%;
+    width: 100%;
+    text-align: center;
+    color: #dff3fe;
+    font-size: 1.5em;
+    opacity: 0;
+    transition: all ease-in-out .25s;
+}
+
+.gallery .item:hover figure figcaption p {
+    opacity: 1;
+    top: 38%;
+}
+
+span.tl:before, span.tl:after, span.br:before, span.br:after {
+    position: absolute;
+    content: ' ';
+    display: block;
+    background: #dff3fe;
+    width: 0;
+    height: 0;
+    transition: all cubic-bezier(0.13, 0.71, 0.30, 0.94) .4s;
+}
+
+span.tl:before {
+    top: 0;
+    left: 0;
+    height: 1px;
+}
+
+span.br:after {
+    right: 0;
+    bottom: 0;
+    height: 1px;
+}
+
+span.tl:after {
+    bottom: 0;
+    left: 0;
+    width: 1px;
+}
+
+span.br:before {
+    right: 0;
+    top: 0;
+    width: 1px;
+}
+
+.gallery .item:hover span.tl:before,
+.gallery .item:hover span.br:after {
+    width: 100%;
+}
+
+.gallery .item:hover span.tl:after,
+.gallery .item:hover span.br:before {
+    height: 100%;
+}
+
+.item-flip {
+    margin: 15px 0;
+}
+
+.item-flip figure {
+    position: relative;
+}
+
+.item-flip img {
+    position: relative;
+    width: 100%;
+    transition: transform ease-in .3s;
+    z-index: 2;
+    backface-visibility: hidden;
+}
+
+.item-flip figcaption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #213142;
+    transform: rotateY(180deg);
+    transition: transform ease-in .3s;
+    z-index: 1;
+    backface-visibility: hidden;
+}
+
+.item-flip figure:hover img {
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+.item-flip figure:hover figcaption {
+    transform: rotateY(0deg);
+    z-index: 2;
+}

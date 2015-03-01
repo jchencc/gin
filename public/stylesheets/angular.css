@@ -1,0 +1,88 @@
+html, body, div, ul, li, input, select, option, p, a, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.phones li {
+    border: 1px solid #00b3ee;
+    padding: 4px;
+    margin: 20px;
+}
+
+.phones .thumb {
+    display: block;
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+.phones .thumb img {
+    max-height: 100%;
+    max-width: auto;
+}
+
+.phones .intro {
+    margin-left: 120px;
+}
+
+.intro {
+    margin-left: 550px;
+}
+
+.intro h1 {
+    margin: 20px 0 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #222;
+}
+
+.img-wrapper {
+    display: block;
+    float: left;
+}
+
+.img-wrapper > img {
+    float: left;
+    max-height: 100%;
+    border: 1px solid #269abc;
+}
+
+.phone-thumbs {
+    float: left;
+    width: 120px;
+    height: 402px;
+    margin-left: 10px;
+    overflow: auto;
+}
+
+.phone-thumbs li {
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: 5px 0;
+    border: 1px solid #269abc;
+}
+
+.phone-thumbs li img {
+    max-height: 100%;
+    max-width: auto;
+}
+
+.specs {
+    margin: 20px 0 0;
+}
+
+.specs li {
+    width: 200px;
+    display: block;
+    float: left;
+}
+
+.specs li > span {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #2a6496;
+}

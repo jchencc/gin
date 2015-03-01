@@ -1,0 +1,20 @@
+extends layout.jade
+block stylesheets
+  link(rel='stylesheet' href='/bower_components/fontawesome/css/font-awesome.min.css')
+  link(rel='stylesheet' href='/stylesheets/daily-ui/20150129-material-design-menu.css')
+block javascripts
+  script(src='/bower_components/jquery/dist/jquery.min.js')
+  script(src='/javascripts/daily-ui/20150129-material-design-menu.js')
+block body
+  header
+    nav: ul
+      li Home
+      li Blog
+      li About
+      li Contact
+    .switch
+      .overlay
+      a.fa.fa-bars(href='#' onclick='return false;')
+      a.fa.fa-arrow-right(href='#' onclick='return false;')
+  main.container
+    p The difference between a master and beginner is that the master has <em>failed</em> more times than the beginner has even tried.

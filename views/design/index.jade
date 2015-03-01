@@ -1,0 +1,18 @@
+doctype html
+html(ng-app="designApp")
+  head
+    meta(charset="UTF-8")
+    title Color
+    link(rel="stylesheet", type="text/css", href="/stylesheets/reset.css")
+    link(rel="stylesheet", type="text/css", href="/bower_components/bootstrap/dist/css/bootstrap.min.css")
+    link(rel="stylesheet", type="text/css", href="/stylesheets/design.css")
+  body
+    .nav
+    .page
+      .crumbs
+      div(ng-view)
+    script(type="text/javascript", src="/bower_components/angular/angular.min.js")
+    script(type="text/javascript", src="/bower_components/angular-route/angular-route.min.js")
+    script(type="text/javascript", src="/bower_components/angular-resource/angular-resource.min.js")
+    script(type="text/javascript", src="/javascripts/design/app.js")
+    script(type="text/javascript", src="/javascripts/design/controllers.js")
