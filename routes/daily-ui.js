@@ -36,8 +36,8 @@ router.post('/add', bodyParser.json(), function(req, res) {
 });
 
 router.post('/delete', bodyParser.json(), function(req, res) {
-    console.log(req.body);
-    res.send('xxx');
+    dao.remove('daily-ui', req.body.id);
+    res.send('ok');
 });
 
 router.use('/:name', function(req, res, next) {

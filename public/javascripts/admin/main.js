@@ -7,12 +7,14 @@ app.run(function($rootScope, $http) {
         });
 
     $rootScope.add = function() {
-        $http.post('/daily-ui/add', {
-            link: '/daily-ui/20141211-snow',
-            label: 'Snow'
-        }).success(function(data) {
-            console.log(data);
-        });
+        if ($rootScope.title && $rootScope.link) {
+            $http.post('/daily-ui/add', {
+                link: $rootScope.link,
+                label: $rootScope.title
+            }).success(function(data) {
+                console.log(data);
+            });
+        }
     };
 
     $rootScope.update = function(index) {
@@ -20,10 +22,12 @@ app.run(function($rootScope, $http) {
     };
 
     $rootScope.delete = function(index) {
-        $http.post('/daily-ui/delete', {
-            link: '/daily-ui/practice'
-        }).success(function(responseText) {
-            console.log(responseText);
-        });
+        if (confirm('delete ' + $rootScope.list[index].label + '?')) {
+            $http.post('/daily-ui/delete', {
+                id: $rootScope.list[index]._id
+            }).success(function(responseText) {
+                console.log(responseText);
+            });
+        }
     };
 });

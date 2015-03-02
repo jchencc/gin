@@ -42,15 +42,21 @@ html(lang='en' ng-app='admin')
                 span.glyphicon.glyphicon-leaf
                 | Manage Daily UI
             .panel-body
-              button.btn.btn-primary(ng-click='add()') Add
+              .row
+                .col-md-12
+                  input(ng-model='title' placeholder='title')
+                  input(ng-model='link' placeholder='link')
+                  button.btn.btn-primary(ng-click='add()') Add
               table.table
                 tr
                   th #
-                  th Name
+                  th Title
+                  th Link
                   th Action
                 tr(ng-repeat='v in list')
                   td {{$index}}
-                  td: a(href='{{v.link}}') {{v.label}}
+                  td: input(ng-model='v.label' value='{{v.label}}')
+                  td: input(ng-model='v.link' value='{{v.link}}')
                   td
                     button(ng-click='update($index)') Update
                     button(ng-click='delete($index)') Delete
