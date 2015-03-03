@@ -6,7 +6,9 @@ var router = express.Router(),
     util = require('util');
 
 router.get('/', function(req, res) {
-    res.render('daily-ui/index');
+    res.render('daily-ui/index', {
+        list: dao.list('daily-ui')
+    });
 });
 
 router.get('/list', function(req, res) {

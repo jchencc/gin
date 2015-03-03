@@ -18,10 +18,7 @@ html(lang='en' ng-app='gin')
         h1.logo GIN
         nav: ul
           li: a(href='/design') Design
-          li
-            a(href='/daily-ui') Daily UI
-            ul
-              li(ng-repeat='work in list'): a(href='{{ work.link }}') {{ work.label }}
+          li: a(href='/daily-ui') Daily UI
           li: a(href='/admin') Manage
     main.container-fluid
     footer.container-fluid

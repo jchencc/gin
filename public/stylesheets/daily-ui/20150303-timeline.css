@@ -1,0 +1,147 @@
+body {
+    background-color: #f9f9f9;
+    color: #726f77;
+}
+
+.timeline {
+    list-style: none;
+    position: relative;
+    width: 80%;
+    margin: 50px auto;
+    background-image: linear-gradient(to bottom, #ee4d4d, #ee4d4d);
+    background-size: 2px 100%;
+    background-position: center 5px;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    padding: 0;
+    transition: all .3s ease-in-out;
+}
+
+.timeline:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.timeline li {
+    position: relative;
+    width: 50%;
+    clear: both;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    transition: all .3s ease-in-out;
+}
+
+.timeline li:nth-child(odd) {
+    float: left;
+    padding-right: 40px;
+}
+
+.timeline li:nth-child(even) {
+    float: right;
+    padding-left: 40px;
+}
+
+.timeline .item {
+    border-radius: 5px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
+    position: relative;
+    transition: all .3s ease-in-out;
+}
+
+.timeline .item-icon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ee4d4d;
+    top: 4px;
+    text-align: center;
+    line-height: 30px;
+    color: #f9f9f9;
+}
+
+.timeline li:nth-child(odd) .item-icon {
+    right: -55px;
+}
+
+.timeline li:nth-child(even) .item-icon {
+    left: -55px;
+}
+
+.timeline .item-head {
+    background-color: #ee4d4d;
+    color: #fff;
+    border-radius: 5px 5px 0 0;
+    position: relative;
+}
+
+.timeline .item-head:before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border: 9px solid #ee4d4d;
+    position: absolute;
+    top: 10px;
+}
+
+.timeline li:nth-child(odd) .item-head:before {
+    border-color: transparent transparent transparent #ee4d4d;
+    right: -18px;
+}
+
+.timeline li:nth-child(even) .item-head:before {
+    border-color: transparent #ee4d4d transparent transparent;
+    left: -18px;
+}
+
+.timeline .item-head h2 {
+    margin: 0;
+    padding: 6px 15px;
+}
+
+.timeline .item-head .date {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 6px;
+}
+
+.timeline .item-body {
+    padding: 16px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.timeline .item-foot {
+    padding: 5px 16px;
+    border: 1px solid #ddd;
+    margin: -1px 0 0 0;
+}
+
+@media (max-width: 720px) {
+    .timeline {
+        background-position: left 5px;
+    }
+
+    .timeline li {
+        width: 100%;
+    }
+
+    .timeline li:nth-child(odd),
+    .timeline li:nth-child(even) {
+        padding: 0 0 0 40px;
+        float: left:
+    }
+
+    .timeline li:nth-child(odd) .item-head:before {
+        border-color: transparent #ee4d4d transparent transparent;
+        left: -18px;
+    }
+
+    .timeline li:nth-child(odd) .item-icon {
+        left: -55px;
+    }
+}
+
