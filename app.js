@@ -1,26 +1,24 @@
-var express = require('express'),
-    path = require('path'),
-    bodyParser = require('body-parser');
+var koa = require('koa'),
+    serve = require('koa-static'),
+    jade = require('koa-jade');
 
-var app = express();
+var app = koa();
 
 // view engine setup
-app.set('view engine', 'jade');
+app.use(jade.middleware({
+  viewPath: __dirname + '/views',
+}));
 
 // static resource router
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(serve('public'));
+app.use(serve('bower_components'));
 
-// app.use(bodyParser.urlencoded({extended: false}));
-// app.use(bodyParser.json());
-
-// custom routers
-app.use('/', require('./routes/index'));
-app.use('/admin', require('./routes/admin'));
-
-// custom 404 page
-app.use('/', function(request, response) {
-    response.status(404);
-    response.render('error/404');
+// TODO: custom routers
+app.use(function* (next) {
+  if (this.path !== '/') return yield next;
+  yield this.render('index');
 });
 
-module.exports = app;
+// TODO: custom 404 page
+
+app.listen(3000);
