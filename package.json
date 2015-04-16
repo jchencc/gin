@@ -4,26 +4,12 @@
   "description": "Daily UI",
   "repository": "http://github.com/jchens/gin.git",
   "devDependencies": {
-    "grunt": "~0.4.5",
-    "grunt-contrib-clean": "~0.6.0",
-    "grunt-contrib-connect": "~0.9.0",
-    "grunt-contrib-jasmine": "~0.8.2",
-    "grunt-contrib-jshint": "~0.11.0",
-    "grunt-contrib-nodeunit": "~0.4.1",
-    "grunt-contrib-qunit": "~0.5.2",
-    "grunt-contrib-uglify": "~0.7.0",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-karma": "~0.10.1",
-    "grunt-nodemon": "~0.4.0",
     "gulp": "^3.8.11",
     "karma": "~0.12.31",
     "karma-chrome-launcher": "~0.1.7",
-    "karma-firefox-launcher": "~0.1.4",
-    "karma-jasmine": "~0.3.5"
+    "karma-firefox-launcher": "~0.1.4"
   },
   "dependencies": {
-    "body-parser": "^1.11.0",
-    "express": "~4.11.2",
     "jade": "~1.9.1",
     "koa": "^0.18.1",
     "koa-body": "^1.2.0",
