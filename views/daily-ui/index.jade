@@ -1,7 +1,0 @@
-extends layout.jade
-block stylesheets
-  link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
-block body
-  ul
-    each v in list
-      li: a(href='#{v.link}') #{v.label}

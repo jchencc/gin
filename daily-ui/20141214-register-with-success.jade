@@ -1,0 +1,29 @@
+extends layout.jade
+block stylesheets
+  link(rel='stylesheet' href='/stylesheets/daily-ui/20141214-register-with-success.css')
+block javascripts
+  script(src='/bower_components/jquery/dist/jquery.min.js')
+  script(src='/bower_components/jquery-ui/jquery-ui.min.js')
+  script(src='/javascripts/daily-ui/20141214-register-with-success.js')
+block body
+  .dialog
+    .dialog-head
+      h3.dialog-title Reynisdrangar
+    .dialog-body
+      .row
+        label Username:
+        input(type='text')
+      .row
+        label Email:
+        input(type='text')
+      .row
+        label Password
+        input(type='text')
+      .row
+        a(href='#' onclick='return false;') Already have an account?
+        button.submit OK
+  .feedback
+    .icon
+    p.title Success
+    p.info Check your email for a booking confirmation. We'll see you soon!
+    a(href='#' onclick='return false;') OK

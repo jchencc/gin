@@ -1,1 +1,3 @@
-Try to use gulp + koa + Backbone + React
+## static resources to record daily ui
+- connect
+- watch
