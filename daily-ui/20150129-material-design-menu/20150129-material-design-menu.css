@@ -1,0 +1,159 @@
+html, body, div, header, main, nav, ul, li, a, span, em, p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    background-color: #009688;
+    color: #212121;
+}
+
+header {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 30%;
+    height: 100%;
+    overflow: hidden;
+}
+
+nav {
+    position: relative;
+    margin: 15% 15% 0;
+    z-index: 2;
+    transform: translateY(15%);
+    opacity: 0;
+    transition: .5s;
+}
+
+header.active nav {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+nav li {
+    font-size: 3em;
+    text-transform: uppercase;
+    padding: .25em 0;
+    font-weight: bold;
+    color: #009688;
+    transition: color .2s;
+}
+
+nav li:hover {
+    color: #00796b;
+    cursor: pointer;
+}
+
+.switch {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    text-align: center;
+    z-index: 1;
+}
+
+.switch .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #f9f9f9;
+    box-shadow: 0 5px 10px #212121;
+    transition: .5s;
+}
+
+header.active .switch .overlay {
+    transform: scale(40);
+}
+
+.switch a {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 80px;
+    font-size: 3em;
+    text-decoration: none;
+    color: #009688;
+    font-weight: normal;
+    transition: .3s;
+}
+
+.switch a.fa-bars {
+    opacity: 1;
+}
+
+.switch a.fa-arrow-right {
+    opacity: 0;
+}
+
+header.active .switch a.fa-bars {
+    opacity: 0;
+    transform: rotateZ(180deg);
+}
+
+header.active .switch a.fa-arrow-right {
+    opacity: 1;
+    transform: rotateZ(180deg);
+}
+
+main {
+    margin-right: 30%;
+    transition: .3s;
+}
+
+main p {
+    padding: 1.5em 4em 0;
+    font-size: 4em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgba(33, 33, 33, .8);
+    line-height: 1.5;
+}
+
+main p em {
+    background-color: rgba(33, 33, 33, .8);
+    color: rgba(249, 249, 249, .9);
+    font-style: normal;
+}
+
+main.active {
+    transform: translateX(-15%);
+    opacity: 0;
+}
+
+@media (min-width: 320px) and (min-height: 600px) {
+    body {
+        font-size: 4px;
+    }
+}
+
+@media (min-width: 1300px) and (min-height: 650px) {
+    body {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 1530px) and (min-height: 750px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1700px) and (min-height: 850px) {
+    body {
+        font-size: 16px;
+    }
+}

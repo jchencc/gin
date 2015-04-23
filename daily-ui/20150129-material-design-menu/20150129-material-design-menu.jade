@@ -1,10 +1,10 @@
-extends layout.jade
-block stylesheets
-  link(rel='stylesheet' href='/bower_components/fontawesome/css/font-awesome.min.css')
-  link(rel='stylesheet' href='/stylesheets/daily-ui/20150129-material-design-menu.css')
-block javascripts
-  script(src='/bower_components/jquery/dist/jquery.min.js')
-  script(src='/javascripts/daily-ui/20150129-material-design-menu.js')
+extends ../layout.jade
+block link
+  link(rel='stylesheet' href='/fontawesome/css/font-awesome.min.css')
+  link(rel='stylesheet' href='/daily-ui/20150129-material-design-menu.css')
+block script
+  script(src='/jquery/dist/jquery.min.js')
+  script(src='/daily-ui/20150129-material-design-menu.js')
 block body
   header
     nav: ul
