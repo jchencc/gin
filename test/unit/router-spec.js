@@ -1,9 +1,23 @@
-var urls = [
-  'http://localhost:3000/daily-ui/20141211-snow/20141211-snow.css',
-  'http://localhost:3000/daily-ui/20141211-snow/20141211-snow.js'
-];
+var request = require('supertest'),
+    chai = require('chai');
 
-for (url of urls) {
-  console.log(url);
-  console.log(/.*\.[(css)|(js)]$/i.test(url));
-}
+var expect = chai.expect;
+
+describe('Router', function() {
+  var browser;
+
+  beforeEach(function() {
+    browser = request('http://localhost:3000');
+  });
+
+  it('should 200', function() {
+    expect(/\/daily-ui\/.+\.css$/i.test('/daily-ui/index/index.css'))
+      .to.be.true;
+    expect(/\/daily-ui\/.+\.js$/i.test('/daily-ui/index/index.js'))
+      .to.be.true;
+    expect(/\/daily-ui\/.+\.(css|js)$/i.test('/daily-ui/index/index.js'))
+      .to.be.true;
+    expect(/\/daily-ui\/.+\.(css|js)$/i.test('/daily-ui/index/index.css'))
+      .to.be.true;
+  });
+});

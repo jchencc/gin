@@ -5,22 +5,28 @@ var app = require('koa')(),
     fs = require('fs');
 
 app.use(views('daily-ui', {default: 'jade'}));
+app.use(serve('public'));
+app.use(serve('bower_components'));
 
-var router = Router({prefix: '/daily-ui'});
+var router = Router();
 
-router.get('/', function* (next) {
+/**
+ * /daily-ui => index
+ * /daily-ui/xxx => xxx.jade
+ * /daily-ui/xxx/xxx.css => static resource
+ */
+router.get('/daily-ui', function* (next) {
   // console.log(this.path);
-  yield this.render('index');
-}).get('/:name', function* (next) {
+  yield this.render('index/index');
+}).get('/daily-ui/:name', function* (next) {
   var name = this.params.name;
-  // console.log(this.path, this.params);
+  console.log('NAME: ', this.path, this.params);
   yield this.render(name + '/' + name);
-}).get(/[(css)|(js)]$/i, function* (next) {
+}).get(/\/daily-ui\/.+\.(css|js)$/i, function* (next) {
   // TODO: how to match resource ends with .css or .js
-  console.log(this.path);
+  console.log('STATIC: ', this.path);
   this.body = fs.createReadStream(__dirname + this.path);
-  // this.body = '';
-})
+});
 
 app.use(router.routes());
 
