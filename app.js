@@ -1,6 +1,7 @@
 var koa = require('koa'),
     serve = require('koa-static'),
-    jade = require('koa-jade');
+    jade = require('koa-jade'),
+    router = require('koa-router')();
 
 var app = koa();
 
@@ -14,10 +15,13 @@ app.use(serve('public'));
 app.use(serve('bower_components'));
 
 // TODO: custom routers
-app.use(function* (next) {
+router.get('/', function* (next) {
   if (this.path !== '/') return yield next;
   yield this.render('index');
 });
+
+app.use(router.routes());
+
 
 // TODO: custom 404 page
 
