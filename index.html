@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>gin</title>
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/underscore/underscore.js"></script>
+  <script src="assets/main.js"></script>
+</head>
+<body>
+  <ul id="list"></ul>
+  <script id="tpl-list" type="text/template">
+    <% _.each(list, function(item) {
+      print('<li><a href="' + item.link + '">' + item.title + '</a></li>')
+    })%>
+  </script>
+</body>
+</html>
